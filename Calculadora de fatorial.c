@@ -5,14 +5,15 @@ int main()
 {
     
     int num = 0;
-    printf("Digite o número: ");
+    printf(" ===========================\n Calculadora de Fatorial\n===========================");
+    printf("\n| Digite o número: ");
     scanf("%d", &num);
     if (num<0){
-        printf("Valor inválido.");
+        printf("---------------------------\n| Valor inválido.\n---------------------------");
     }
     
     else if (num==0){
-        printf("0! = 1");
+        printf("---------------------------\n| 0! = 1\n---------------------------");
     }
     
     
@@ -24,7 +25,7 @@ int main()
             fatorial *= num-i;
             
         }
-        printf("%d! = %d",num,fatorial);
+        printf("---------------------------\n| %d! = %d\n---------------------------\n",num,fatorial);
         
     }
     
