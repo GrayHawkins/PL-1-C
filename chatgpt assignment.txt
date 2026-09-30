@@ -1,0 +1,253 @@
+Absolutely. Since you've already practiced **variables, `if/else`, `switch`, loops, `scanf`, and basic arithmetic**, a good next step is an assignment that introduces **functions, arrays, strings, validation, and structs** without becoming overwhelming.
+
+ ## Assignment: Student Grade Management System
+
+ Build a C program that manages the grades of a small group of students.
+
+ ### Requirements
+
+ Your program should display a menu repeatedly:
+
+```
+================================
+       GRADE MANAGER
+================================
+1. Add student
+2. Show all students
+3. Search for a student
+4. Calculate class average
+5. Show highest grade
+6. Exit
+================================
+Choose an option:
+```
+
+ ### 1\. Add student
+
+ The user should be able to register a student with:
+
+ - Name
+- Student ID
+- Grade 1
+- Grade 2
+- Grade 3
+
+ Store the information in a `struct`.
+
+ For example:
+
+```
+struct Student {
+    char name[50];
+    int id;
+    float grades[3];
+};
+```
+
+ Allow the program to store **up to 10 students**.
+
+---
+
+ ### 2\. Show all students
+
+ Display something like:
+
+```
+ID: 1023
+Name: Gabriel
+Grades: 8.5 7.0 9.0
+Average: 8.17
+Status: APPROVED
+
+----------------------------
+
+ID: 1024
+Name: Maria
+Grades: 5.0 6.0 4.5
+Average: 5.17
+Status: FAILED
+```
+
+ A student passes if their average is **7.0 or higher**.
+
+---
+
+ ### 3\. Search for a student
+
+ Ask for the student's ID:
+
+```
+Enter student ID: 1023
+```
+
+ If the student exists, display their information.
+
+ If not:
+
+```
+Student not found.
+```
+
+---
+
+ ### 4\. Calculate class average
+
+ Calculate the average of **all grades from all registered students**.
+
+ For example:
+
+```
+Number of students: 4
+Class average: 7.36
+```
+
+---
+
+ ### 5\. Show highest grade
+
+ Find and display the student who has the highest **overall average**.
+
+ Example:
+
+```
+Top student
+------------
+Name: Gabriel
+ID: 1023
+Average: 9.13
+```
+
+---
+
+ ## Rules
+
+ Try to implement the program using these concepts:
+
+ - `struct`
+- Arrays
+- Strings
+- `for` loops
+- `while` loops
+- `switch`
+- Functions
+- `if/else`
+- Passing arguments to functions
+- Returning values from functions
+
+ Try **not** to put everything inside `main()`.
+
+ For example, you could have:
+
+```
+void addStudent(...);
+void showStudents(...);
+void searchStudent(...);
+float calculateAverage(...);
+void showTopStudent(...);
+```
+
+ You don't have to use exactly these function definitions. Part of the assignment is figuring out how to organize the data between your functions.
+
+ ### ⭐ Bonus challenges
+
+ Once the basic version works:
+
+ 1. Prevent two students from having the same ID.
+2. Don't allow grades below `0` or above `10`.
+3. Allow the user to remove a student.
+4. Allow the user to modify a student's grades.
+5. Sort the students from highest average to lowest average.
+6. Save the students to a file using `fopen()`, `fprintf()`, and `fscanf()`.
+
+ **Difficulty:** I'd put the basic assignment around **6/10** compared with your ATM program, with the file/sorting bonuses pushing it toward **8/10**.
+
+ If you're studying C seriously, I'd recommend trying to build this **without looking up a complete solution**. When you get stuck, show me your code and I can help you debug it without simply giving you the answer.
+
+
+
+
+
+
+
+
+
+
+Yes — **kind of**, but there's an important distinction.
+
+ If by **POO** you mean **Programação Orientada a Objetos (Object-Oriented Programming)**, then a `struct` is similar to one part of what you get with an object, but **a C `struct` is not itself an object in the OOP sense**.
+
+ ### Think of it this way
+
+ A `struct` lets you **group data together**:
+
+```
+struct Student {
+    char name[50];
+    int id;
+    float grade;
+};
+```
+
+ You can then create:
+
+```
+struct Student student1;
+```
+
+ So `student1` has:
+
+```
+student1
+├── name
+├── id
+└── grade
+```
+
+ That's similar to an object having **attributes/properties**.
+
+ ### But C++/Java/Python OOP goes further
+
+ In an OOP language, you might have something like:
+
+```
+class Student {
+public:
+    string name;
+    int id;
+    float grade;
+
+    void showStudent() {
+        cout << name;
+    }
+};
+```
+
+ Now the `Student` has both:
+
+ - **data** → `name`, `id`, `grade`
+- **behavior** → `showStudent()`
+
+ That's much closer to an object.
+
+ In C, you generally keep the data and functions separate:
+
+```
+struct Student {
+    char name[50];
+    int id;
+    float grade;
+};
+
+void showStudent(struct Student student) {
+    printf("Name: %s\n", student.name);
+}
+```
+
+ So a useful mental model is:
+
+ > **C `struct` ≈ a way to create a custom data structure.**\
+>  **OOP object ≈ data + behavior + additional concepts like encapsulation, inheritance, polymorphism, etc.**
+
+ Interestingly, C **can be used to imitate some OOP techniques**, but that's beyond what you need right now.
+
+ For your current assignment, I'd think of `struct` as **"a box that lets me keep related information together."** That's the simplest and most useful way to understand it.
