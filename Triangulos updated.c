@@ -9,7 +9,7 @@ int main(){
         scanf("%f", &sides[i]);
     }
         
-    if(sides[0]>sides[1]+sides[2] || sides[1]>sides[0]+sides[2] || sides[2]>sides[0]+sides[1]){
+    if(sides[0]>=sides[1]+sides[2] || sides[1]>=sides[0]+sides[2] || sides[2]>=sides[0]+sides[1]){
         printf("\nOs valores %.2f, %.2f e %.2f não podem formar um triângulo.", sides[0], sides[1], sides[2]);
         return 0;
     }
@@ -39,8 +39,8 @@ int main(){
         else{
             printf("\nOs valores não podem formar um triângulo retângulo.");
         }
-        return 0;
+        
     }
-    
+return 0;
 }
 
